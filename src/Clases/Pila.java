@@ -19,8 +19,7 @@ public class Pila {
     public void push(int s){
         
         if (tope < n-1) {
-            tope = tope + 1;
-            pila[tope] = s;
+            pila[++tope] = s;
         } else {
             System.out.println("La pila esta llena.");
         }
@@ -29,12 +28,13 @@ public class Pila {
     public int pop(){
         int elemento = 0;
         if (tope >= 0) {
-            elemento = pila[tope];
-            tope = tope - 1;
+//            elemento = pila[tope];
+//            tope = tope - 1;
+                return pila[tope--];
         } else {
-            
+            System.out.println("No hay nada para popear");
+            return 0;
         }
-        return elemento;
     }
     
     public boolean pilaVacia(){
@@ -47,28 +47,26 @@ public class Pila {
         return tope == n-1;
     }
     
-    public void verElemento(Pila pila1){
-        int contador = 0;
-        for (int i = 0; i < n; i++) {
-            contador = contador + 1;
-            System.out.println(pila[i] + ", Posicion: " + contador);
+    public void verElemento(){
+        for (int i = 0; i <= tope; i++) {
+            System.out.println(pila[i] + ", Posicion: " + (i + 1));
         }
     }
     
-    public void invierteSimple(Pila pila1){
+    public Pila invierteSimple(){
         Pila pilaAux1 = new Pila(n); 
         Pila pilaAux2 = new Pila(n);
         
-        while(!pila1.pilaVacia()){
-            pilaAux1.push(pila1.pop());
+        while(!this.pilaVacia()){
+            pilaAux1.push(this.pop());
         }
         while(!pilaAux1.pilaVacia()){
             pilaAux2.push(pilaAux1.pop());
         }
         while(!pilaAux2.pilaVacia()){
-            pila1.push(pilaAux2.pop());
+            this.push(pilaAux2.pop());
         }
-            
+            return this;
     }
     
 }

@@ -27,24 +27,20 @@ public class Main {
         pila1.push(15);
         pila1.push(10);
         
-        pila1.verElemento(pila1);
+        pila1.verElemento();
         
         System.out.println("--------------------------------------------------------------------");
 
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
-//        pila1.pop();
+        System.out.println("Cuantos elementos desea eliminar?: / IGUAL O MENOR A 10");
+        int dato = leer.nextInt();
+        
+        for (int i = 0; i < dato; i++) {
+            pila1.pop();
+        }
         
         System.out.println("--------------------------------------------------------------------");
         
-        if (pila1.pilaVacia() == true) {
+        if (pila1.pilaVacia()) {
             System.out.println("La pila esta vacia.");
         } else {
             System.out.println("La pila NO esta vacia.");
@@ -52,15 +48,15 @@ public class Main {
         
         System.out.println("--------------------------------------------------------------------");
         
-        if (pila1.pilaLlena() == true) {
+        if (pila1.pilaLlena()) {
             System.out.println("La pila esta llena.");
         } else {
             System.out.println("La pila NO esta llena.");
         }
         
-        pila1.invierteSimple(pila1);
+        pila1.invierteSimple();
         System.out.println("--------------------------------------------------------------------");
-        pila1.verElemento(pila1);
+        pila1.verElemento();
         
         
         
